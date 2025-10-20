@@ -19,6 +19,7 @@ from GristAPI import GristAPI
 from BetaGouvAPI import BetaGouvAPI
 from deepdiff import DeepDiff
 from pprint import pprint
+import logging
 import re
 import pdb
 
@@ -26,6 +27,12 @@ class SyncApi:
 
 	def __init__(self, env):
 		print("🔃 Init")
+
+		# Configurer le logger principal
+		logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+		# Créer un logger spécifique pour le module principal
+		self.logger = logging.getLogger('sync')
 
 		# Load GRIST data
 		self.grist = GristAPI(env)
@@ -82,6 +89,7 @@ class SyncApi:
 				if key in ["incubator_id", "incubator", "contact"]:
 					continue
 				if key not in r2.keys() or r1[key] != r2[key]:
+					self.logger.debug("{record} updated - {key}: {old_value} > {new_value}".format(record=record_id, key=key, old_value=r1[key], new_value=r2[key]))
 					updated.add(record_id)
 					break
 

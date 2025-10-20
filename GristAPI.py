@@ -14,8 +14,7 @@ class GristAPI:
         logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
         # Créer un logger spécifique pour le module principal
-        logger = logging.getLogger('main')
-        logger.info("Démarrage de l'application")
+        logger = logging.getLogger('grist_api')
 
         self.__get_env(env)
         self.api = GristDocAPI(self.base, server=self.server)
