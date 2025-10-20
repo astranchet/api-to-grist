@@ -27,7 +27,6 @@ class GristAPI:
             quit()
 
         # Récupérer les variables d'environnement
-        # This should be read from .yml file ?
         load_dotenv(path)
         for param in ['GRIST_DOC_ID', 'GRIST_SERVER', 'GRIST_TABLE']:
             if not os.getenv(param):
