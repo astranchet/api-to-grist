@@ -96,6 +96,4 @@ if __name__ == '__main__':
 	sync = SyncApi(env)
 
 	sync.showDiff(write)
-	# if(write):
-	#	sync.updateData()
 
