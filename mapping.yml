@@ -1,0 +1,17 @@
+beta_gouv:
+  # generic key: <key in beta API>
+  id: id
+  name: name
+  mission: pitch
+  contact: contact
+  statistiques: stats_url
+  url: link
+grist:
+  # generic key: <column name in Grist>
+  id: Id_beta
+  name: Nom
+  mission: Mission
+  phase: Phase
+  statistiques: Page_stats
+  incubator_id: Incubateur_id_
+  url: Lien
