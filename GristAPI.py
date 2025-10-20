@@ -68,7 +68,7 @@ class GristAPI:
         return self.records.get(id)
 
     def create(self, id, data):
-        d = self._convertDataToGristDict(data)
+        d = self._convertDataToGristDict(id, data)
 
         try:
             self.api.add_records(self.table, [d])
@@ -90,7 +90,11 @@ class GristAPI:
 
     def _convertDataToGristDict(self, id, data):
         grist_data = self.get(id)
-        d = {'id': grist_data["grist_id"]}
+        if(grist_data):
+            d = {'id': grist_data["grist_id"]}
+        else:
+            d = {}
+
         for key, grist_key in self.mapping.items():
             d[grist_key] = data[key]
 
