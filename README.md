@@ -35,8 +35,8 @@ Et modifiez le fichier de mapping si besoin
 python3 sync.py
 
 # Mettre à jour le Grist depuis l'API
-python3 startup.py -w
+python3 sync.py -w
 
-# Mettre à jour les SE avec un fichier d'environnement
-python3 startup.py -w -e .myenv
+# Mettre à jour le Grist depuis l'API avec un fichier d'environnement
+python3 sync.py -w -e .myenv
 ```
