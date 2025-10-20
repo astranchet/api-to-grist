@@ -58,7 +58,9 @@ class GristAPI:
             d["grist_id"] = r.id
             for(key) in self.mapping:
                 grist_key = self.mapping[key]
-                d[key] = getattr(r, grist_key) # I don't like this but r.key doesn't work since key is a string
+                value = getattr(r, grist_key) # I don't like this but r.key doesn't work since key is a string
+                d[key] = value if value != "null" else None
+
             r_id = getattr(r, self.mapping["id"])
             self.records[r_id] = d
 
